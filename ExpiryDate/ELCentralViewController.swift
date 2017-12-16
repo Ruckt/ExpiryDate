@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ELCentralViewController.swift
 //  ExpiryDate
 //
 //  Created by Edan Lichtenstein on 12/16/17.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ELCentralViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +22,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        print("tapped")
+    }
 }
 
