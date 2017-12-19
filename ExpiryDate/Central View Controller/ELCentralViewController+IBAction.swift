@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-extension ELCentralViewController {
+extension ELCentralViewController: UITextFieldDelegate {
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        if dateLabel.text == "required" {
+        if dateTextField.text == "" {
             let alert = UIAlertController(title: "Validation Error", message: "The specified date is not valid.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
@@ -22,6 +22,10 @@ extension ELCentralViewController {
     
     @IBAction func dateLabelTapped(_ sender: UITapGestureRecognizer) {
         displayPickerView()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        pickUp(dateTextField)
     }
 
 }

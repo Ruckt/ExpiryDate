@@ -19,31 +19,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YU5-F6-Mqb" userLabel="Date Label">
-                                <rect key="frame" x="155" y="233" width="64" height="21"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="e1x-5A-wlc" appends="YES" id="rCi-Jz-Aae"/>
-                                </connections>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="expiry date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEx-n5-Qus">
-                                <rect key="frame" x="155" y="257" width="64" height="12"/>
+                                <rect key="frame" x="137.5" y="257" width="100" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="required" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJR-CC-mDA">
+                                <rect key="frame" x="137.5" y="233" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="lEM-Kp-hpB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YU5-F6-Mqb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="2/3" id="Mik-e8-OfO"/>
+                            <constraint firstItem="SJR-CC-mDA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="2/3" id="Mik-e8-OfO"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vEx-n5-Qus" secondAttribute="trailing" constant="20" symbolic="YES" id="Udf-Pd-Eq6"/>
-                            <constraint firstItem="YU5-F6-Mqb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XMk-B3-XJ5"/>
-                            <constraint firstItem="vEx-n5-Qus" firstAttribute="leading" secondItem="YU5-F6-Mqb" secondAttribute="leading" id="atk-Y8-VE8"/>
-                            <constraint firstItem="vEx-n5-Qus" firstAttribute="width" secondItem="YU5-F6-Mqb" secondAttribute="width" id="bgh-aG-IWS"/>
-                            <constraint firstItem="vEx-n5-Qus" firstAttribute="top" secondItem="YU5-F6-Mqb" secondAttribute="bottom" constant="3" id="fHi-Hg-vaa"/>
+                            <constraint firstItem="SJR-CC-mDA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XMk-B3-XJ5"/>
+                            <constraint firstItem="vEx-n5-Qus" firstAttribute="leading" secondItem="SJR-CC-mDA" secondAttribute="leading" id="atk-Y8-VE8"/>
+                            <constraint firstItem="vEx-n5-Qus" firstAttribute="width" secondItem="SJR-CC-mDA" secondAttribute="width" id="bgh-aG-IWS"/>
+                            <constraint firstItem="vEx-n5-Qus" firstAttribute="top" secondItem="SJR-CC-mDA" secondAttribute="bottom" constant="3" id="fHi-Hg-vaa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -55,7 +54,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateLabel" destination="YU5-F6-Mqb" id="k7X-iF-k8R"/>
+                        <outlet property="dateTextField" destination="SJR-CC-mDA" id="Tfb-wa-UQ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
