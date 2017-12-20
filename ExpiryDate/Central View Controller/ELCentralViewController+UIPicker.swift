@@ -35,6 +35,14 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         textField.inputAccessoryView = toolBar
     }
     
+    @objc func pickerDoneTapped() {
+        if isSelectedExpiryDateValid() {
+            hidePickerView()
+        } else {
+            self.presentAlert(title: "Validation Error", message: "The selected date cannot be in the past.")
+        }
+    }
+    
     func displayPickerView() {
         UIView.animate(withDuration: 0.75,
                        delay: 0.0,
@@ -50,15 +58,7 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         }) { (finished) in }
         self.view.addSubview(datePickerView)
     }
-    
-    @objc func pickerDoneTapped() {
-        if isSelectedExpiryDateValid() {
-            hidePickerView()
-        } else {
-            self.presentAlert(title: "Validation Error", message: "The selected date cannot be in the past.")
-        }
-    }
-    
+
     func hidePickerView() {
         UIView.animate(withDuration: 0.75,
                        delay: 0.0,
@@ -91,7 +91,6 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         } else {
             return yearsArray.count
         }
-        
     }
     
     //MARK: - Delegates -
@@ -127,5 +126,4 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
             }
         }
     }
-
 }

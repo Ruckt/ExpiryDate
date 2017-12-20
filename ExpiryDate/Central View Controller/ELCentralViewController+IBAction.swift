@@ -27,5 +27,4 @@ extension ELCentralViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUp(dateTextField)
     }
-
 }

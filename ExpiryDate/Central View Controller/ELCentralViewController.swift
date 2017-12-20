@@ -53,7 +53,6 @@ class ELCentralViewController: UIViewController {
         let calendar = Calendar(identifier: .gregorian)
         let components = DateComponents(year: Int(today.getYear()), month: Int(today.getMonthName()))
         
-        
         if let selectedDate = self.selectedExpiryDate,
             let todayMonthYear = calendar.date(from: components),
             selectedDate >= todayMonthYear {
