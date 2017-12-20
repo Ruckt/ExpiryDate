@@ -8,3 +8,5 @@ The following are inconsistenics/issues that I noticed that I would discuss with
 2) Intentionally or not, October is misspelled " OV"
 
 3) There are 2 different expired dates notification statements in the directions.
+
+4) Both done button instructions check for date validation and thus repetative.

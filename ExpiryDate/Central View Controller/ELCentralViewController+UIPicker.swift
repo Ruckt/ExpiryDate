@@ -27,17 +27,12 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         toolBar.sizeToFit()
         
         // buttons for toolBar
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(pickerDoneTapped))
+        let doneButton = UIBarButtonItem(title: "DONE", style: .done, target: self, action: #selector(pickerDoneTapped))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBar.setItems([flexSpace, doneButton], animated: false)
     
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
-    }
-    
-    @objc func pickerDoneTapped() {
-        
-        hidePickerView()
     }
     
     func displayPickerView() {
@@ -54,6 +49,14 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
                         
         }) { (finished) in }
         self.view.addSubview(datePickerView)
+    }
+    
+    @objc func pickerDoneTapped() {
+        if isSelectedExpiryDateValid() {
+            hidePickerView()
+        } else {
+            self.presentAlert(title: "Validation Error", message: "The selected date cannot be in the past.")
+        }
     }
     
     func hidePickerView() {
@@ -76,7 +79,7 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         }
     }
     
-    //MARK: - Delegates and data sources
+    //MARK: - Data Sources -
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
          return 2
@@ -91,7 +94,7 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates -
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
@@ -112,14 +115,17 @@ extension ELCentralViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         
         if (month == 0) || (pickerYear == 0) {
             self.selectedExpiryDate = nil
-            return
+        } else  {
+            let year = Int(yearsArray[pickerYear].getYear())
+            let calendar = Calendar(identifier: .gregorian)
+            let components = DateComponents(year: year, month: month)
+            
+            if let selectedDate = calendar.date(from: components) {
+                self.selectedExpiryDate = selectedDate
+            } else {
+                self.selectedExpiryDate = nil
+            }
         }
-        
-        let year = Int(yearsArray[pickerYear].getYear())
-
-        let calendar = Calendar(identifier: .gregorian)
-        let components = DateComponents(year: year, month: month)
-
-        self.selectedExpiryDate = calendar.date(from: components)!
     }
+
 }

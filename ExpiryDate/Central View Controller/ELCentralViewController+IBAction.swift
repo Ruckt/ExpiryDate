@@ -13,10 +13,10 @@ extension ELCentralViewController: UITextFieldDelegate {
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        if dateTextField.text == "" {
-            let alert = UIAlertController(title: "Validation Error", message: "The specified date is not valid.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
+        if self.isSelectedExpiryDateValid() {
+            self.presentAlert(title: "Success!", message: "Thank you, the selected date has been saved.")
+        } else {
+            self.presentAlert(title: "Validation Error", message: "The specified date is not valid.")
         }
     }
     
